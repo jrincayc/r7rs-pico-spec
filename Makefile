@@ -1,7 +1,7 @@
 
 .PHONY: all clean cleaner checkindex
 
-all: r7rs.pdf overview.pdf
+all: tr7rs.pdf
 
 clean:
 	rm -f *~
@@ -12,7 +12,7 @@ cleaner: clean
 DIFF_SOURCES=basic.tex derive.tex example.tex expr.tex \
 	lex.tex procs.tex prog.tex struct.tex
 
-SOURCES=r7rs.tex $(DIFF_SOURCES) intro.tex \
+SOURCES=tr7rs.tex $(DIFF_SOURCES) intro.tex \
 	bib.tex syn.tex commands.tex first.tex notes.tex \
 	repository.tex index.tex sem.tex stdmod-raw.tex \
 	features.tex
@@ -29,8 +29,10 @@ checkindex: stdmod-raw.tex index.tex
 intro-ebook.tex: intro.tex
 	sed 's/\\clearextrapart{\(.*\)}/\1/g' $< > $@
 
-r7rs.pdf: $(SOURCES) stdmod.tex
+tr7rs.pdf: $(SOURCES) stdmod.tex
 	pdflatex $<
+	pdflatex $<
+	makeindex tr7rs.idx
 	pdflatex $<
 
 overview.pdf: overview.tex overview-body.tex

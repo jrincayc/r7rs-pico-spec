@@ -1,13 +1,14 @@
 \documentclass[twoside,twocolumn]{algol60}
 
 \usepackage{amsmath}
+\usepackage{makeidx}
 
 \pagestyle{headings}
 \showboxdepth=0
 \makeindex
 \input{commands}
 
-\def\headertitle{Revised$^{7}$ Scheme}
+\def\headertitle{DRAFT - Tiny Revised$^{7}$ Scheme}
 \def\integerversion{7}
 
 % Sizes and dimensions
@@ -35,6 +36,7 @@
 %% End of sizes and dimensions
 
 \usepackage{hyperref}
+%\usepackage{refcheck} %also need to uncomment \nocite{*} below
 %% \usepackage{supertabular}
 
 \begin{document}
@@ -48,32 +50,35 @@
 \input{struct}  \par
 \input{lex}	\par
 \input{basic}	\par
-\input{expr}	\par  \vfill\eject
+\input{expr}	\par
 \input{prog}	\par
-\input{procs}	\par  \vfill\eject
+\input{procs}	\par
 \input{syn}	\par
 \input{sem}	\par
-\input{derive}	\par  \vfill\eject
+\input{derive}	\par
 \appendix
-\input{stdmod}	\par \vfill\eject
-\input{features} \par \vfill\eject
-\input{notes}	\par
-\input{repository} \par \vfill\eject
+%\input{stdmod}	\par \vfill\eject
+%\input{features} \par \vfill\eject
+%\input{notes}	\par
+%\input{repository} \par \vfill\eject
 \input{example}	\par  %\vfill\eject
 \renewcommand{\bibname}{References}
 \input{bib}	\par
+%\nocite{*}
 
 \vfill\eject
 
 
-\begin{theindex}
+%\begin{theindex}
 
-The principal entry for each term, procedure, or keyword is listed
-first, separated from the other entries by a semicolon.
+%The principal entry for each term, procedure, or keyword is listed
+%first, separated from the other entries by a semicolon.
 
-\bigskip
+%\bigskip
 
-\input{index}
-\end{theindex}
+%\input{index}
+\printindex
+
+%\end{theindex}
 
 \end{document}

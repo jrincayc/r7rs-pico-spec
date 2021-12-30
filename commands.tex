@@ -85,15 +85,23 @@
 % writes (index-entry "SORTKEY" "HEADCS" TYPE PAGENUMBER)
 % which becomes  \item \HEADCS{SORTKEY} mainpagenumber ; auxpagenumber ...
 
-\global\def\reallyindex#1#2#3{%
-\write\@indexfile{"#1" "#2" #3 \thepage}}
+%\global\def\reallyindex#1#2#3{%
+%\write\@indexfile{"#1" "#2" #3 \thepage}}
 
-\newcommand{\mainschindex}[1]{\label{#1}\reallyindex{#1}{tt}{main}}
-\newcommand{\mainindex}[1]{\reallyindex{#1}{rm}{main}}
-\newcommand{\schindex}[1]{\reallyindex{#1}{tt}{aux}}
-\newcommand{\sharpindex}[1]{\reallyindex{#1}{sharpfoo}{aux}}
+\newcommand{\mainschindex}[1]{\label{#1}\index{#1@\tt{#1}}}%main
+\newcommand{\mainindex}[1]{\index{#1@\rm{#1}}}%main
+\newcommand{\schindex}[1]{\index{#1@\tt{#1}}}%aux
+\newcommand{\sharpindex}[1]{\index{#1@\sharpfoo #1}}%aux
 \newcommand{\sharpbangindex}[1]{\index{#1@\texttt{\#!#1}}}
-\renewcommand{\index}[1]{\reallyindex{#1}{rm}{aux}}
+%\renewcommand{\index}[1]{\reallyindex{#1}{rm}{aux}}
+
+%\newcommand{\mainschindex}[1]{\label{#1}\index{\tt #1}{tt}}
+%\newcommand{\mainindex}[1]{\index{\rm #1}}
+%\newcommand{\schindex}[1]{\index{\tt #1}}
+%\newcommand{\sharpindex}[1]{\index{#1}}
+%\newcommand{\sharpbangindex}[1]{\index{#1@\texttt{\#!#1}}}
+%\renewcommand{\index}[1]{\reallyindex{#1}{rm}{aux}}
+
 
 \newcommand{\domain}[1]{{\small\noindent #1}
 

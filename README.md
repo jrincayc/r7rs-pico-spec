@@ -9,3 +9,19 @@ person working on it part time can implement it in a few months.
 
 In addition, the denotational semantics are considerably simpler than the semantics
 for r7rs-small which aids in understanding it.
+
+For example, in tr7rs the type of an expression is:
+
+U -> E
+
+but in r7rs-small the type is:
+
+U -> P -> K -> C
+
+since the expression has to return a continuation and be able to modify a store.
+However in tr7rs an expression only has to convert an environment to a expressed value.
+
+There is an interpreter for tr7rs that mostly implements this specification:
+https://github.com/jrincayc/rust_tr7rs/
+
+

@@ -41,3 +41,18 @@ This procedure returns the first sublist of {\em l} whose car is {\em obj}.
 (assq 'b e)            \ev (b 2)
 (assq 'd e)            \ev \schfalse
 \end{scheme}
+
+This shows using the Y combinator to create a recursive function.
+
+\begin{scheme}
+(let ((Y (lambda (phi)
+           ((lambda (f) (f f))
+            (lambda (f)
+              (phi (lambda x (apply (f f) x))))))))
+  (let ((fact
+         (Y (lambda (fact)
+              (lambda (n)
+                (if (< n 2) 1
+                    (* n (fact (- n 1)))))))))
+    (fact 5))) \ev 120
+\end{scheme}

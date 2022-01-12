@@ -29,7 +29,7 @@ of tokens.
 
 \vest Identifiers are
 terminated by a \meta{delimiter} or by the end of the input.
-So are numbers, and booleans.
+So are numbers and booleans.
 
 The following eight characters from the ASCII repertoire
 are reserved for future extensions to the
@@ -54,8 +54,7 @@ in symbols or identifiers.
 \begin{grammar}%
 \meta{token} \: \meta{identifier} \| \meta{boolean} \| \meta{number}\mainindex{identifier}
 \>  \| ( \| ) \| \singlequote{}
-\meta{delimiter} \: \meta{whitespace} \| \meta{vertical line}
-\> \| ( \| ) \| ;
+\meta{delimiter} \: \meta{whitespace} \| ( \| ) \| ;
 \meta{intraline whitespace} \: \meta{space or tab}
 \meta{whitespace} \: \meta{intraline whitespace} \| \meta{line ending}
 \meta{line ending} \: \meta{newline} \| \meta{return} \meta{newline}
@@ -91,7 +90,7 @@ in symbols or identifiers.
 
 \label{numbersyntax}
 \begin{grammar}%
-  \meta{number} \: \meta{sign} \atleastone{\meta{digit $10$}}
+  \meta{number} \: \meta{sign} \atleastone{\meta{digit}}
 
   \meta{sign} \: \meta{empty}  \| + \|  -
 \end{grammar}

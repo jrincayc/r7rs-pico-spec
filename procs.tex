@@ -101,7 +101,7 @@ used to implement the Scheme numbers, and notations used to write
 numbers.  This report uses the types \type{number}, and \type{integer}
 to refer to both mathematical numbers and Scheme numbers.
 
-Tiny Scheme implementations should support integers sufficiently large
+Pico Scheme implementations should support integers sufficiently large
 to calculate the length of any allowable list, and which usually can
 be satisfied by signed integers of the same length as machine
 addresses.
@@ -286,7 +286,7 @@ is the ``dotted'' notation \hbox{\cf (\vari{c} .\ \varii{c})} where
 the cdr field.  For example {\cf (4 .\ 5)} is a pair whose car is 4
 and whose cdr is 5.  Note that {\cf (4 .\ 5)} is the external
 representation of a pair, not an expression that evaluates to a pair.
-Note that Tiny Scheme implementations are not required to allow
+Note that Pico Scheme implementations are not required to allow
 ``dotted'' notation as input and datums.
 
 A more streamlined notation can be used for lists: the elements of the

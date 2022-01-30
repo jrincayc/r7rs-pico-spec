@@ -9,7 +9,7 @@ This section gives an overview of Scheme's semantics.  A
 detailed informal semantics is the subject of
 chapters~\ref{basicchapter} through~\ref{builtinchapter}.  For reference
 purposes, section~\ref{formalsemanticssection} provides a formal
-semantics of Tiny Scheme.
+semantics of Pico Scheme.
 
 \vest Scheme is a statically scoped programming
 language.  Each use of a variable is associated with a lexically
@@ -38,7 +38,7 @@ means that the actual argument expressions are evaluated before the
 procedure gains control, regardless of whether the procedure needs the
 result of the evaluation.
 
-\vest Tiny Scheme's model of arithmetic is simplified compared to
+\vest Pico Scheme's model of arithmetic is simplified compared to
 \rsevenrs{} and only integers are required.
 
 \section{Syntax}
@@ -54,11 +54,11 @@ The formal syntax of Scheme is described in section~\ref{BNF}.
 \subsection{Base and optional features}
 \label{qualifiers}
 
-Tiny Scheme is already reduced, but if a smaller subset is desired,
+Pico Scheme is already reduced, but if a smaller subset is desired,
 either symbols or integers could be removed. Either {\cf cond} or {\cf
   if} could be removed. If extended, it is recommend to use
-\rsevenrs\ as a guide. For cases where both \rsevenrs\ and Tiny Scheme
-are using defined behavior, it is intended that Tiny Scheme should
+\rsevenrs\ as a guide. For cases where both \rsevenrs\ and Pico Scheme
+are using defined behavior, it is intended that Pico Scheme should
 have identical results.
 
 

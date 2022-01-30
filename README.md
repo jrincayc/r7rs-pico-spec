@@ -1,5 +1,6 @@
 # r7rs-pico-spec
 Pico version of revised⁷ report on the algorithmic language scheme
+(This was originally called r7rs-tiny-spec)
 
 This designed as a smaller version of the Scheme spec, suitable for use when the
 small version is still too big.
@@ -20,6 +21,11 @@ U -> P -> K -> C
 
 since the expression has to return a continuation and be able to modify a store.
 However in pr7rs an expression only has to convert an environment to a expressed value.
+
+There are various other smaller versions of Scheme including:
+The Little Schemer has a smaller version used in the book.
+Bottom Scheme: https://github.com/johnwcowan/r7rs-work/blob/master/BottomScheme.md
+Lispy: https://norvig.com/lispy.html
 
 There is an interpreter for pr7rs that mostly implements this specification:
 https://github.com/jrincayc/rust_tr7rs/

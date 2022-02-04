@@ -28,6 +28,6 @@ There are various other smaller versions of Scheme including:
 * Lispy: https://norvig.com/lispy.html
 
 There is an interpreter for pr7rs that mostly implements this specification:
-https://github.com/jrincayc/rust_tr7rs/
+https://github.com/jrincayc/rust_pr7rs/
 
 

@@ -280,14 +280,12 @@ The above definitions imply that all lists have finite length and are
 terminated by the empty list.
 \end{note}
 
-The most general notation (external representation) for Scheme pairs
-is the ``dotted'' notation \hbox{\cf (\vari{c} .\ \varii{c})} where
-\vari{c} is the value of the car field and \varii{c} is the value of
-the cdr field.  For example {\cf (4 .\ 5)} is a pair whose car is 4
-and whose cdr is 5.  Note that {\cf (4 .\ 5)} is the external
-representation of a pair, not an expression that evaluates to a pair.
-Note that Pico Scheme implementations are not required to allow
-``dotted'' notation as input and datums.
+The most general notation (external representation) for Scheme pairs is
+the ``dotted'' notation \hbox{\cf (\vari{c} .\ \varii{c})} where
+\vari{c} is the value of the car field and \varii{c} is the value of the
+cdr field.  For example {\cf (4 .\ 5)} is a pair whose car is 4 and whose
+cdr is 5.  Note that {\cf (4 .\ 5)} is the external representation of a
+pair, not an expression that evaluates to a pair.
 
 A more streamlined notation can be used for lists: the elements of the
 list are simply enclosed in parentheses and separated by spaces.  The
@@ -339,7 +337,7 @@ The {\cf pair?} predicate returns \schtrue{} if \var{obj} is a pair, and otherwi
 returns \schfalse.
 
 \begin{scheme}
-(pair? (cons 'a 'b))        \ev  \schtrue
+(pair? '(a . b))        \ev  \schtrue
 (pair? '(a b c))        \ev  \schtrue
 (pair? '())             \ev  \schfalse
 \end{scheme}
@@ -370,7 +368,7 @@ error to take the car of the empty list\index{empty list}.
 \begin{scheme}
 (car '(a b c))          \ev  a
 (car '((a) b c d))      \ev  (a)
-(car (cons 1 2))        \ev  1
+(car '(1 . 2))          \ev  1
 (car '())               \ev  \scherror%
 \end{scheme}
  
@@ -385,7 +383,7 @@ Note that it is an error to take the cdr of the empty list.
 
 \begin{scheme}
 (cdr '((a) b c d))      \ev  (b c d)
-(cdr (cons 1 2))        \ev  2
+(cdr '(1 . 2))          \ev  2
 (cdr '())               \ev  \scherror%
 \end{scheme}
  

@@ -16,7 +16,8 @@ bindings\mainindex{binding} in effect at some point in a program is
 known as the {\em environment} in effect at that point.  The value
 to which a variable is bound is called the
 variable's value.  In \rsevenrs{} variables are technically bound to
-a memory location instead of a value.
+a memory location instead of a value. Pico Scheme implementations may
+bind variables to values.
 
 \vest Certain expression types bind variables to values.
 These expression types are called {\em binding constructs}.
@@ -58,7 +59,7 @@ These predicates define the types
 {\em boolean}, the empty list object,
 {\em number, pair, procedure}, and {\em symbol}.
 \mainindex{type}\schindex{boolean?}\schindex{pair?}\schindex{symbol?}
-\schindex{number?}\schindex{procedure?}\index{empty list}
+\schindex{number?}\schindex{procedure?}\mainindex{empty list}
 
 Although there is a separate boolean type,
 any Scheme value can be used as a boolean value for the purpose of a
@@ -78,7 +79,7 @@ characters ``{\tt 28}'', and an external representation of a list consisting
 of the integers 8 and 13 is the sequence of characters ``{\tt(8 13)}''.
 
 The external representation of an object is not necessarily unique.  The
-integer 28 also has representations ``{\tt +28}'', and the
+integer 28 also has a representation ``{\tt +28}'', and the
 list in the previous paragraph also has the representations ``{\tt( 08 13
 )}'' and ``{\tt(8 .\ (13 .\ ()))}'' (see section~\ref{listsection}).
 
@@ -182,7 +183,6 @@ are shown here.
 (or \arbno{\meta{expression}} \meta{tail expression})
 
 (let (\arbno{\meta{binding spec}}) \meta{tail body})
-(let \meta{variable} (\arbno{\meta{binding spec}}) \meta{tail body})
 
 {\rm where}
 
@@ -214,9 +214,6 @@ Implementations may
 recognize that some non-tail calls, such as the call to {\cf h}
 above, can be evaluated as though they were tail calls.
 In the example above, the {\cf let} expression could be compiled
-as a tail call to {\cf h}. (The possibility of {\cf h} returning
-an unexpected number of values can be ignored, because in that
-case the effect of the {\cf let} is explicitly unspecified and
-implementation-dependent.)
+as a tail call to {\cf h}.
 \end{note}
 

@@ -20,7 +20,7 @@ section~\ref{derivedsection}.
 
 An expression consisting of a variable\mainindex{variable}
 (section~\ref{variablesection}) is a variable reference.  The value of
-the variable reference is the value stored the
+the variable reference is the value stored in the
 variable.  It is an error to reference an
 unbound\mainindex{unbound} variable.
 
@@ -101,6 +101,8 @@ Procedure calls in Pico Scheme return one value.
 \begin{note} In contrast to other dialects of Lisp, the order of
 evaluation is unspecified, and the operator expression and the operand
 expressions are always evaluated with the same evaluation rules.
+Because Pico Scheme procedures do not have side effects, the order of
+evaluation does not affect results.
 \end{note}
 
 \begin{note}

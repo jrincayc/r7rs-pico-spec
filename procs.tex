@@ -200,7 +200,7 @@ count as true.
 
 \begin{note}
 Unlike some other dialects of Lisp,
-Scheme distinguishes \schfalse{} and the empty list \index{empty list}
+Scheme distinguishes \schfalse{} and the empty list \mainindex{empty list}
 from each other and from the symbol \ide{nil}.
 \end{note}
 
@@ -256,7 +256,7 @@ The car and cdr fields are accessed by the procedures {\cf car} and
 {\cf cdr}.
 
 Pairs are used primarily to represent lists.  A \defining{list} can
-be defined recursively as either the empty list\index{empty list} or a pair whose
+be defined recursively as either the empty list\mainindex{empty list} or a pair whose
 cdr is a list.  More precisely, the set of lists is defined as the smallest
 set \var{X} such that
 
@@ -289,7 +289,7 @@ pair, not an expression that evaluates to a pair.
 
 A more streamlined notation can be used for lists: the elements of the
 list are simply enclosed in parentheses and separated by spaces.  The
-empty list\index{empty list} is written {\tt()}.  For example,
+empty list\mainindex{empty list} is written {\tt()}.  For example,
 
 \begin{scheme}
 (a b c d e)%
@@ -363,7 +363,7 @@ Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
 \proto{car}{ pair}{procedure}}
 
 Returns the contents of the car field of \var{pair}.  Note that it is an
-error to take the car of the empty list\index{empty list}.
+error to take the car of the empty list\mainindex{empty list}.
 
 \begin{scheme}
 (car '(a b c))          \ev  a
@@ -392,7 +392,7 @@ Note that it is an error to take the cdr of the empty list.
 \begin{entry}{%
 \proto{null?}{ obj}{procedure}}
 
-Returns \schtrue{} if \var{obj} is the empty list\index{empty list},
+Returns \schtrue{} if \var{obj} is the empty list\mainindex{empty list},
 otherwise returns \schfalse.
 
 \end{entry}

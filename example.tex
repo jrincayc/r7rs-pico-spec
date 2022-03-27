@@ -14,7 +14,7 @@ Here are examples using Pico Scheme.
    )
 ))
 (list? '(a b c))        \ev \schtrue
-(list? (cons 'a 'b))    \ev \schfalse
+(list? '(a . b))  \ev \schfalse
 \end{scheme}
 
 Returns a list consisting of the elements of {\em l} followed by {\em t}

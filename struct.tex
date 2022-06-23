@@ -153,7 +153,6 @@ $$
 \vr{pair}&pair\\
 \vr{proc}&procedure\\
 \vr{symbol}&symbol\\
-\vr{thunk}&zero-argument procedure\\
 \end{tabular}
 $$
 
@@ -181,9 +180,4 @@ of procedures that always return a boolean value.
 Such procedures are called \defining{predicates}.
 Predicates are generally understood to be side-effect free, except that they
 may have an error when passed the wrong type of argument.
-
-A \defining{command} is a procedure that does not return useful values
-to its continuation.
-
-A \defining{thunk} is a procedure that does not accept arguments.
 

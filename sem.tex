@@ -155,13 +155,13 @@ Definition of \Ksem{} deliberately omitted.
 \begin{semfun}
   \Esem\sembrack{\hbox{\texttt{(lambda (\arbno{\I}) \arbno{\D} $\E_0$)}}} =$\\
   \go{1}\=$\lambda\rho\:.\:(\lambda\arbno{\epsilon}\:.\:\#\arbno{\epsilon} = \#{\arbno{\I}}\rightarrow$\\
-  \>\go{1}$(\Esem\sembrack{E_0})((tiedecs\:\Esem\sembrack{\arbno{\D}})(extends\:\rho\:\arbno{\I}\:\arbno{\epsilon})),$\\
+  \>\go{1}$(\Esem\sembrack{E_0})((tiedecs\:\Dsem\sembrack{\arbno{\D}})(extends\:\rho\:\arbno{\I}\:\arbno{\epsilon})),$\\
  \>\go{1}$ \wrong{wrong number of arguments})
 \end{semfun}
 
 \begin{semfun}
   \Esem\sembrack{\hbox{\texttt{(lambda \I \: \arbno{\D} $\E_0$)}}} =$\\
-  \go{1}\=$\lambda\rho\:.\:(\lambda\arbno{\epsilon}\:.\:(\Esem\sembrack{E_0})((\fun{tiedecs}\:\Esem\sembrack{\arbno{\D}})(\rho[\langle\arbno{\epsilon}\rangle/\I])))
+  \go{1}\=$\lambda\rho\:.\:(\lambda\arbno{\epsilon}\:.\:(\Esem\sembrack{E_0})((\fun{tiedecs}\:\Dsem\sembrack{\arbno{\D}})(\rho[\langle\arbno{\epsilon}\rangle/\I])))
 \end{semfun}
 
 \begin{semfun}

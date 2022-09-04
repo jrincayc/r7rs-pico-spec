@@ -156,8 +156,9 @@ the syntax keywords defined in this report have not been redefined or shadowed.
 
 \begin{grammar}%
 \meta{program} \:
-\> \atleastone{\meta{expression or definition}}
-\meta{expression or definition} \: \meta{expression}
-\> \| \meta{definition}
+\> \atleastone{\meta{expression or definition or io}}
+\meta{expression or definition or io} \: \meta{expression}
+\> \| \meta{definition} \| \meta{io}
 \meta{definition} \: (define \meta{identifier} \meta{expression})
+\meta{io} \: (display \meta{identifier}) \| (newline)
 \end{grammar}

@@ -460,3 +460,60 @@ arguments.
 ((compose - *) 3 4)              \ev  -12%
 \end{scheme}
 \end{entry}
+
+\section{Input and output}
+
+Pico Scheme allows output to a character device. Input is not
+specified in this report but an implementation may be extended to
+support input. Since expressions are side-effect free, standard Pico
+Scheme programs should not perform input or output from expressions
+and implementations can require that input or output from them is an
+error.  Output is only required to be allowed at the outermost level
+of a program.
+
+\begin{rationale}
+  Implementations may choose to allow input and output (IO) from
+  expressions (like \rsevenrs\ allows) or choose to forbid it.  An
+  implementation that forbids IO side-effects in expressions but
+  wishes to allow IO in places besides the outermost level would
+  likely need to extend Scheme in a way that is not compatible with
+  \rsevenrs.
+
+  For example, an implementation could add a command type that allowed
+  IO, and syntax to create it and then allow {\cf (define displayline
+    (delta (x) (display x) (newline)))} to define a new command {\cf
+    displayline}.
+
+  Implementations could add a non-expression {\cf do} that allows
+  IO inside it, similar to \rsevenrs's {\cf do} to support more
+  flexible IO while remaining a subset of \rsevenrs.
+
+  Besides {\cf display} and {\cf newline}, implementations could add
+  {\cf write-u8}, {\cf (define} \hyper{indentifier} {\cf (read))}, and
+  {\cf (define} \hyper{identifier} {\cf (read-u8))} to the outermost
+  level to support more IO.
+\end{rationale}
+
+\subsection{Output}
+\label{outputsection}
+
+\begin{entry}{%
+\proto{display}{ obj}{input or output}
+}
+
+Writes a representation of \var{obj} to the textual output.
+For booleans, nulls, numbers, symbols and pairs, this should
+be an external representation of the object.
+Returns an unspecified value.
+
+\end{entry}
+
+\begin{entry}{%
+\proto{newline}{}{input or output}
+}
+
+Writes an end of line to textual output.  Exactly how this
+is done differs
+from one operating system to another. Returns an unspecified value.
+
+\end{entry}

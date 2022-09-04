@@ -28,14 +28,14 @@ symmetric, reflexive, and transitive.
 
 
 \begin{entry}{%
-\proto{eq?}{ \vari{obj} \varii{obj}}{procedure}}
+\proto{eqv?}{ \vari{obj} \varii{obj}}{procedure}}
 
-The {\cf eq?}\ procedure can determine if symbols and
+The {\cf eqv?}\ procedure can determine if symbols, numbers and
 booleans are equivalent. The empty list is only equivalent to another empty
 list. Two different types are never equivalent, and other comparisons
 are unspecified.
 
-The {\cf eq?} procedure returns \schtrue{} if:
+The {\cf eqv?} procedure returns \schtrue{} if:
 
 \begin{itemize}
 \item \vari{obj} and \varii{obj} are both \schtrue{} or both \schfalse.
@@ -43,10 +43,13 @@ The {\cf eq?} procedure returns \schtrue{} if:
 \item \vari{obj} and \varii{obj} are both symbols and are the same
 symbol (section~\ref{symbolsection}).
 
+\item \vari{obj} and \varii{obj} are both numbers and
+are numerically equal (in the sense of {\cf =}).
+
 \item \vari{obj} and \varii{obj} are both the empty list.
 \end{itemize}
 
-The {\cf eq?} procedure returns \schfalse{} if:
+The {\cf eqv?} procedure returns \schfalse{} if:
 
 \begin{itemize}
 \item \vari{obj} and \varii{obj} are of different types
@@ -58,6 +61,9 @@ The {\cf eq?} procedure returns \schfalse{} if:
 \item \vari{obj} and \varii{obj} are symbols but are not the same
 symbol (section~\ref{symbolsection}).
 
+\item \vari{obj} and \varii{obj} are both numbers and
+are numerically unequal (in the sense of {\cf =}).
+
 \item one of \vari{obj} and \varii{obj} is the empty list but the other
 is not.
 
@@ -65,24 +71,25 @@ is not.
 
 
 \begin{scheme}
-(eq? 'a 'a)                     \ev  \schtrue
-(eq? '(a) '(a))                 \ev  \unspecified
-(eq? (list 'a) (list 'a))       \ev  \unspecified
-(eq? '() '())                   \ev  \schtrue
-(eq? 2 2)                       \ev  \unspecified
-(eq? car car)                   \ev  \unspecified
+(eqv? 'a 'a)                     \ev  \schtrue
+(eqv? 'a 'b)                     \ev  \schfalse
+(eqv? '(a) '(a))                 \ev  \unspecified
+(eqv? (list 'a) (list 'a))       \ev  \unspecified
+(eqv? '() '())                   \ev  \schtrue
+(eqv? 2 2)                       \ev  \schtrue
+(eqv? car car)                   \ev  \unspecified
 (let ((n (+ 2 3)))
-  (eq? n n))      \ev  \unspecified
+  (eqv? n n))      \ev  \unspecified
 (let ((x '(a)))
-  (eq? x x))      \ev  \unspecified
+  (eqv? x x))      \ev  \unspecified
 (let ((x '()))
-  (eq? x x))      \ev  \schtrue
+  (eqv? x x))      \ev  \schtrue
 (let ((p (lambda (x) x)))
-  (eq? p p))      \ev  \unspecified
-(eq? \#f 'nil)                  \ev  \schfalse%
+  (eqv? p p))      \ev  \unspecified
+(eqv? \#f 'nil)                  \ev  \schfalse%
 \end{scheme}
 
-\begin{rationale} {\cf eq?}\ can be used to compare non-numeric atoms, and
+\begin{rationale} {\cf eqv?}\ can be used to compare atoms, and
 other uses are left unspecified.
 \end{rationale}
 
@@ -401,7 +408,7 @@ otherwise returns \schfalse.
 \label{symbolsection}
 
 Symbols are objects whose usefulness rests on the fact that two
-symbols are identical (in the sense of {\cf eq?}) if and only if their
+symbols are identical (in the sense of {\cf eqv?}) if and only if their
 names are spelled the same way.  For instance, they can be used
 the way enumerated values are used in other languages.
 

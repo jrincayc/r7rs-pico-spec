@@ -270,10 +270,10 @@ Definition of \Ksem{} deliberately omitted.
     \>$\go{1}\wrong{non-pair argument to {\cf cdr}})
 \end{semfun}
 
-\schindex{eq?}
+\schindex{eqv?}
 \begin{semfun}
-\fun{eq}          :  \arbno{\EXP} \to \EXP$\\$
-\fun{eq} =$\\
+\fun{eqv}          :  \arbno{\EXP} \to \EXP$\\$
+\fun{eqv} =$\\
  \go{1}$\fun{twoarg}\,(\lambda\epsilon_1\epsilon_2\:.\:
    $\=$(\epsilon_1\:\elem\:\MSC\wedge\epsilon_2\:\elem\:\MSC)\rightarrow$\\
     \>$\go{1}
@@ -283,7 +283,10 @@ Definition of \Ksem{} deliberately omitted.
     \>$\go{1}
        $\=$(\epsilon_1\:\vert\:\SYM = \epsilon_2\:\vert\:\SYM\rightarrow\fun{true},
            \fun{false}),$\\
-           \>$(\epsilon_1\:\elem\:\NUM\wedge\epsilon_2\:\elem\:\NUM)\rightarrow\fun{unspecified},$\\
+           \>$(\epsilon_1\:\elem\:\NUM\wedge\epsilon_2\:\elem\:\NUM)\rightarrow$\\
+           \>$\go{1}
+           $\=$(\epsilon_1\:\vert\:\NUM = \epsilon_2\:\vert\:\NUM\rightarrow\fun{true},
+           \fun{false}),$\\
            \>$(\epsilon_1\:\elem\:\PAI\wedge\epsilon_2\:\elem\:\PAI)\rightarrow\fun{unspecified},$\\
            \>$(\epsilon_1\:\elem\:\FUN\wedge\epsilon_2\:\elem\:\FUN)\rightarrow\fun{unspecified},$\\
     \>$\go{1}\:\fun{false}\:)

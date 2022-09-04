@@ -31,32 +31,17 @@ Returns a list consisting of the elements of {\em l} followed by {\em t}
 This procedure returns the first sublist of {\em l} whose car is symbol {\em obj}.
 
 \begin{scheme}
-(define assq (lambda (obj l)
+(define assv (lambda (obj l)
   (cond ((null? l) \schfalse)
-        ((eq? obj (car (car l))) (car l))
-        (else (assq obj (cdr l)))
+        ((eqv? obj (car (car l))) (car l))
+        (else (assv obj (cdr l)))
 )))
 (define e '((a 1) (b 2) (c 3)))
-(assq 'a e)            \ev (a 1)
-(assq 'b e)            \ev (b 2)
-(assq 'd e)            \ev \schfalse
-\end{scheme}
-
-This procedure returns the first sublist of {\em l} whose car is symbol or number {\em obj}.
-
-\begin{scheme}
-(define assocns (lambda (obj l)
-  (cond ((null? l) \schfalse)
-        ((and (number? obj) (number? (car (car l)))
-              (= obj (car (car l))))
-         (car l))
-        ((eq? obj (car (car l))) (car l))
-        (else (assocns obj (cdr l)))
-)))
-(define e2 '((a 1) (3 b) (c 4)))
-(assocns 'a e2) \ev (a 1)
-(assocns 3 e2)  \ev (3 b)
-(assocns 1 e2)  \ev \schfalse
+(assv 'a e)            \ev (a 1)
+(assv 'b e)            \ev (b 2)
+(assv 'd e)            \ev \schfalse
+(assv 5 ’((2 3) (5 7) (11 13)))
+                       \ev (5 7)
 \end{scheme}
 
 This shows using the Y combinator to create a recursive function.

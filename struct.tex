@@ -57,7 +57,8 @@ The formal syntax of Scheme is described in section~\ref{BNF}.
 Pico Scheme is already reduced, but if a smaller subset is desired,
 either symbols or integers could be removed. Either {\cf cond} or {\cf
   if} could be removed. Both {\cf let} and {\cf apply} could be
-removed. If extended, it is recommend to use \rsevenrs\ as a
+removed. If only a REPL is provided, output could be removed.
+If extended, it is recommend to use \rsevenrs\ as a
 guide. For cases where both \rsevenrs\ and Pico Scheme are using
 defined behavior, it is intended that Pico Scheme should have
 identical results.
@@ -178,6 +179,7 @@ representations of objects.
 By convention, \ide{?} is the final character of the names
 of procedures that always return a boolean value.
 Such procedures are called \defining{predicates}.
-Predicates are generally understood to be side-effect free, except that they
+Predicates, like all procedures in Pico Scheme, are generally
+side-effect free, except that they
 may have an error when passed the wrong type of argument.
 

@@ -162,14 +162,12 @@ the results of the procedure call.
 \begin{itemize}
 \item {\tt(\hyperi{variable} \dotsfoo)}:
 The procedure takes a fixed number of arguments; when the procedure is
-called, the arguments will be stored in fresh locations
-that are bound to the corresponding variables.
+called, the arguments will be bound to the corresponding variables.
 
 \item \hyper{variable}:
 The procedure takes any number of arguments; when the procedure is
 called, the sequence of actual arguments is converted into a newly
-allocated list, and the list is stored in a fresh location
-that is bound to
+allocated list, and the list is bound to
 \hyper{variable}.
 
 \end{itemize}
@@ -328,8 +326,8 @@ being bound.
 
 \semantics
 The \hyper{init}s are evaluated in the current environment (in some
-unspecified order), the \hyper{variable}s are bound to fresh locations
-holding the results, the \hyper{body} is evaluated in the extended
+unspecified order), the \hyper{variable}s are bound to
+the results, the \hyper{body} is evaluated in the extended
 environment, and the values of the last expression of \hyper{body}
 are returned.  Each binding of a \hyper{variable} has \hyper{body} as its
 region.\mainindex{region}

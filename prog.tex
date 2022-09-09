@@ -12,14 +12,45 @@ are allowed, specifically at the outermost level of a \hyper{program}
 and at the beginning of a \hyper{body}.
 \mainindex{definition}
 
+Import declarations and definitions
+cause bindings to be created in the global
+environment or modify the value of existing global bindings.
+The initial environment of a program is empty,
+so at least one import declaration is needed to introduce initial bindings.
+
 Expressions occurring at the outermost level of a program
 do not create any bindings.  They are
 executed in order when the program is
 invoked or loaded, and typically perform some kind of initialization.
 
-Programs are typically stored in files, although
+Programs and libraries are typically stored in files, although
 in some implementations they can be entered interactively into a running
 Scheme system.  Other paradigms are possible.
+Implementations which store libraries in files should document the
+mapping from the name of a library to its location in the file system.
+
+\section{Import declarations}
+\mainschindex{import}
+
+An import declaration takes the following form:
+\begin{scheme}
+(import \hyper{import-set} \dotsfoo)
+\end{scheme}
+
+An import declaration provides a way to import identifiers
+exported by a library.  Each \hyper{import set} names a set of bindings
+from a library. It takes the following form:  {\tt\hyper{library name}}
+
+All of the identifiers in the named library's export
+clauses are imported with the same names.
+
+
+In a program or library declaration, it is an error to import the same
+identifier more than once with different bindings, or to redefine or
+mutate an imported binding with a definition
+or to refer to an identifier before it is imported.
+However, a REPL should permit these actions.
+
 
 \section{Variable definitions}
 \label{defines}
@@ -82,6 +113,97 @@ of any of the definitions that follow it in \hyper{body}.
 
 It is an error to define the same identifier more than once in the
 same \hyper{body}.
+
+\section{Libraries}
+\label{libraries}
+
+Libraries provide a way to organize Scheme programs into reusable parts
+with explicitly defined interfaces to the rest of the program.  This
+section defines the notation and semantics for libraries.
+
+
+\subsection{Library Syntax}
+
+A library definition takes the following form:
+\mainschindex{define-library}
+
+\begin{scheme}
+(define-library \hyper{library name}
+  \hyper{library declaration} \dotsfoo)
+\end{scheme}
+
+\hyper{library name} is a list whose members are identifiers and exact non-negative integers.  It is used to
+identify the library uniquely when importing from other programs or
+libraries.
+Libraries whose first identifier is {\cf scheme} are reserved for use by this
+report and future versions of this report.
+Libraries whose first identifier is {\cf srfi} are reserved for libraries
+implementing Scheme Requests for Implementation.
+It is inadvisable, but not an error, for identifiers in library names to
+contain any of the characters {\cf | \backwhack{} ? * < " : > + [ ] /}
+or control characters after escapes are expanded.
+
+\label{librarydeclarations}
+A \hyper{library declaration} is any of:
+
+\begin{itemize}
+
+\item{\tt(export \hyper{export spec} \dotsfoo)}
+
+\item{\tt(import \hyper{import set} \dotsfoo)}
+
+\item{\tt(begin \hyper{command or definition} \dotsfoo)}
+
+\end{itemize}
+
+An \ide{export} declaration specifies a list of identifiers which
+can be made visible to other libraries or programs.
+An \hyper{export spec} takes the following form:
+
+\begin{itemize}
+\item{\hyper{identifier}}
+\end{itemize}
+
+In an \hyper{export spec}, an \hyper{identifier} names a single
+binding defined within or imported into the library, where the
+external name for the export is the same as the name of the binding
+within the library.
+
+An \ide{import} declaration provides a way to import the identifiers
+exported by another library.  It has the same syntax and semantics as
+an import declaration used in a program or at the REPL (see section~\ref{import}).
+
+The \ide{begin} declaration is
+used to specify the body of
+the library.  It has the same syntax and semantics as the corresponding
+expression type.
+
+One possible implementation of libraries is as follows:
+A new
+environment is constructed for the library consisting of all
+imported bindings.  The expressions
+from all \ide{begin}
+library declarations are expanded in that environment in the order in which
+they occur in the library.
+Alternatively, \ide{import} declarations may be processed
+in left to right order interspersed with the processing of other
+declarations, with the environment growing as imported bindings are
+added to it by each \ide{import} declaration.
+
+When a library is loaded, its expressions are executed
+in textual order.
+If a library's definitions are referenced in the expanded form of a
+program or library body, then that library must be loaded before the
+expanded program or library body is evaluated. This rule applies
+transitively.  If a library is imported by more than one program or
+library, it may possibly be loaded additional times.
+
+Regardless of the number of times that a library is loaded, each
+program or library that imports bindings from a library must do so from a
+single loading of that library, regardless of the number of import
+declarations in which it appears.
+That is, {\cf (import (foo))} followed by {\cf (import (foo))}
+has the same effect as {\cf (import (foo))}.
 
 \section{The REPL}
 

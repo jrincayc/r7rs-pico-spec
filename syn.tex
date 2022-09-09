@@ -156,8 +156,25 @@ the syntax keywords defined in this report have not been redefined or shadowed.
 
 \begin{grammar}%
 \meta{program} \:
+\> \arbno{\meta{import declaration}}
 \> \atleastone{\meta{expression or definition}}
 \meta{expression or definition} \: \meta{expression}
 \> \| \meta{definition}
 \meta{definition} \: (define \meta{identifier} \meta{expression})
+\end{grammar}
+
+\subsection{Libraries}
+
+\begin{grammar}%
+\meta{library} \:
+\> (d\=efine-library \meta{library name}
+\>   \> \arbno{\meta{library declaration}})
+\meta{library name} \: (\atleastone{\meta{library name part}})
+\meta{library name part} \: \meta{identifier} \| \meta{uinteger 10}
+\meta{library declaration} \: (export \arbno{\meta{export spec}})
+\> \| \meta{import declaration}
+\> \| (begin \arbno{\meta{command or definition}})
+\meta{import declaration} \: (import \atleastone{\meta{import set}})
+\meta{export spec} \: \meta{identifier}
+\meta{import set} \: \meta{library name}
 \end{grammar}

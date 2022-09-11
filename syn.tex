@@ -31,11 +31,11 @@ of tokens.
 terminated by a \meta{delimiter} or by the end of the input.
 So are numbers and booleans.
 
-The following eight characters from the ASCII repertoire
+The following nine characters from the ASCII repertoire
 are reserved for future extensions to the
 language or are used in \rsevenrs:
 {\tt \verb"[" \verb"]" \verb"{" \verb"}" \verb',' \verb'@'
-\verb'"' \verb'|'}
+\verb'"' \verb'|' \verb'\'}
 
 In addition to the identifier characters of the ASCII repertoire specified
 below, Scheme implementations may permit any additional repertoire of
@@ -157,10 +157,11 @@ the syntax keywords defined in this report have not been redefined or shadowed.
 \begin{grammar}%
 \meta{program} \:
 \> \arbno{\meta{import declaration}}
-\> \atleastone{\meta{expression or definition}}
-\meta{expression or definition} \: \meta{expression}
-\> \| \meta{definition}
+\> \atleastone{\meta{expression or definition or io}}
+\meta{expression or definition or io} \: \meta{expression}
+\> \| \meta{definition} \| \meta{io}
 \meta{definition} \: (define \meta{identifier} \meta{expression})
+\meta{io} \: (display \meta{identifier}) \| (newline)
 \end{grammar}
 
 \subsection{Libraries}

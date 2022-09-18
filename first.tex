@@ -91,35 +91,38 @@ portions of this report that are copied directly from \rfivers, \rsixrs\ and \rs
 There is no intended implication that those editors, individually or
 collectively, support or do not support this report.
 \end{note}
+\subsection*{Background}
 
-\subsection*{Acknowledgments}
+\vest The first description of Scheme was written in
+1975~\cite{Scheme75}.  A revised report~\cite{Scheme78}
+appeared in 1978, which described the evolution
+of the language as its MIT implementation was upgraded to support an
+innovative compiler~\cite{Rabbit}. An introductory
+computer science textbook using Scheme was published in
+1984~\cite{SICP}.
 
-We would like to thank all the past editors of \rsevenrs\cite{R7RS}, and the
-people who helped them in turn: Hal Abelson, Norman Adams, David
-Bartley, Alan Bawden, Michael Blair, Gary Brooks, George Carrette,
-Andy Cromarty, Pavel Curtis, Jeff Dalton, Olivier Danvy, Ken Dickey,
-Bruce Duba, Robert Findler, Andy Freeman, Richard Gabriel, Yekta
-G\"ursel, Ken Haase, Robert Halstead, Robert Hieb, Paul Hudak, Morry
-Katz, Eugene Kohlbecker, Chris Lindblad, Jacob Matthews, Mark Meyer,
-Jim Miller, Don Oxley, Jim Philbin, Kent Pitman, John Ramsdell,
-Guillermo Rozas, Mike Shaff, Jonathan Shapiro, Guy Steele, Julie
-Sussman, Perry Wagle, Mitchel Wand, Daniel Weise, Henry Wu, and Ozan
-Yigit.  We thank Carol Fessenden, Daniel Friedman, and Christopher
-Haynes for permission to use text from the Scheme 311 version 4
-reference manual.  We thank Texas Instruments, Inc.~for permission to
-use text from the {\em TI Scheme Language Reference
-Manual}~\cite{TImanual85}.  We gladly acknowledge the influence of
-manuals for MIT Scheme~\cite{MITScheme}, T~\cite{Rees84}, Scheme
-84~\cite{Scheme84}, Common Lisp~\cite{CLtL}, and Algol 60~\cite{Naur63},
-as well as the following SRFIs:  0, 1, 4, 6, 9, 11, 13, 16, 30, 34, 39, 43, 46, 62, and 87,
-all of which are available at {\cf http://srfi.schemers.org}.
+\vest Fifteen representatives of the major implementations of Scheme
+met in October 1984.
+Their report, the RRRS~\cite{RRRS},
+was published at MIT and Indiana University in the summer of 1985.
+Further revision took place in the spring of 1986, resulting in the
+\rthreers~\cite{R3RS}.
+Work in the spring of 1988 resulted in \rfourrs~\cite{R4RS},
+which became the basis for the
+IEEE Standard for the Scheme Programming Language in 1991~\cite{IEEEScheme}.
+In 1998, several additions to the IEEE standard, including high-level
+hygienic macros, multiple return values, and {\cf eval}, were finalized
+as the \rfivers~\cite{R5RS}.
 
+In the fall of 2006, work began on a more ambitious standard.
+The resulting standard, the
+\rsixrs, was completed in August 2007~\cite{R6RS}.
 
+In 2009 the Scheme Steering Committee decided to divide the
+standard into two separate but compatible languages --- a ``small''
+language and a ``large'' language.
+The ``small'' language of that effort resulted in \rsevenrs~\cite{R7RS}.
 
-The subset of Scheme in
-{\em The Little Schemer}~\cite{LittleSchemer} provided inspiration for
-Pico Scheme. We would like to thank Masanori Ogino, Wolfgang Corcoran-Mathe, José Bollo and John Cowan
-for help with the Pico Scheme Report.
 
 
 \todo{expand the summary so that it fills up the column.}
@@ -134,5 +137,5 @@ for help with the Pico Scheme Report.
 \tableofcontents
 }
 
-\vfill
-\eject
+%\vfill
+%\eject

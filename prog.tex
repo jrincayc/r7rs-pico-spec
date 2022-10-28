@@ -21,6 +21,20 @@ Programs are typically stored in files, although
 in some implementations they can be entered interactively into a running
 Scheme system.  Other paradigms are possible.
 
+\begin{rationale}
+  In order to simplify Pico Scheme, library declarations and importing
+  are not part of the specification and not required.  However,
+  \rsevenrs\ requires that programs start with one or more import
+  declarations. Pico Scheme programs being run by \rsevenrs\ will need
+  to have a {\cf (import (scheme base) (scheme write))} added at the
+  start.
+
+  Pico Scheme implementations may choose to implement \rsevenrs\ {\cf
+    import}, {\cf define-library}, and {\cf export} as declarations.
+  Two possible ways are to implement these directly, or via using the
+  auxiliary function {\it extends} and appropriate rewrite rules.
+\end{rationale}
+
 \section{Variable definitions}
 \label{defines}
 \mainindex{variable definition}

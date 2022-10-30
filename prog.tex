@@ -30,9 +30,11 @@ Scheme system.  Other paradigms are possible.
   start.
 
   Pico Scheme implementations may choose to implement \rsevenrs\ {\cf
-    import}, {\cf define-library}, and {\cf export} as declarations.
-  Two possible ways are to implement these directly, or via using the
-  auxiliary function {\it extends} and appropriate rewrite rules.
+    import}, {\cf define-library}, and {\cf export} directly as
+  declarations.  A possible alternative implementation is adding a
+  variables declaration (such as {\cf define-vars}) that uses the
+  auxiliary function {\it extends} and appropriate rewrite rules to
+  map {\cf import} to {\cf define-vars}.
 \end{rationale}
 
 \section{Variable definitions}

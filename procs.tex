@@ -97,7 +97,7 @@ other uses are left unspecified.
 
 \section{Numbers}
 \label{numbersection}
-\index{number}
+\mainindex{number}
 
 \newcommand{\type}[1]{{\it#1}}
 \newcommand{\tupe}[1]{{#1}}
@@ -130,8 +130,8 @@ arguments to numerical routines.
 \proto{number?}{ obj}{procedure}}
 
 This numerical type predicate can be applied to any kind of
-argument, including non-numbers.  It return \schtrue{} if the object is
-of the named type, and otherwise it return \schfalse{}.
+argument, including non-numbers.  It returns \schtrue{} if the object is
+a number, and otherwise it returns \schfalse{}.
 
 \begin{scheme}
 (number? 3)         \ev  \schtrue
@@ -347,7 +347,7 @@ returns \schfalse.
 \begin{entry}{%
 \proto{cons}{ \vari{obj} \varii{obj}}{procedure}}
 
-Returns a newly allocated pair whose car is \vari{obj} and whose cdr is
+Returns a pair whose car is \vari{obj} and whose cdr is
 \varii{obj}. 
 
 \begin{scheme}

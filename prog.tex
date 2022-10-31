@@ -7,8 +7,7 @@ A Scheme program consists of a sequence of
 expressions, definitions and output.
 Expressions are described in chapter~\ref{expressionchapter}.
 Definitions are variable definitions which are explained in this chapter.
-They are valid in some, but not all, contexts where expressions
-are allowed, specifically at the outermost level of a \hyper{program}
+They are valid in the outermost level of a \hyper{program}
 and at the beginning of a \hyper{body}.
 \mainindex{definition}
 
@@ -20,6 +19,22 @@ invoked or loaded, and typically perform some kind of initialization.
 Programs are typically stored in files, although
 in some implementations they can be entered interactively into a running
 Scheme system.  Other paradigms are possible.
+
+\begin{note}
+  In order to simplify Pico Scheme, library declarations and importing
+  are not part of the specification and not required.  However,
+  \rsevenrs\ requires that programs start with one or more import
+  declarations. Pico Scheme programs being run by \rsevenrs\ will need
+  to have a {\cf (import (scheme base) (scheme write))} added at the
+  start.
+
+  Pico Scheme implementations may choose to implement \rsevenrs\ {\cf
+    import}, {\cf define-library}, and {\cf export} directly as
+  declarations.  A possible alternative implementation is adding a
+  variables declaration (such as {\cf define-vars}) that uses the
+  auxiliary function {\it extends} and appropriate rewrite rules to
+  map {\cf import} to {\cf define-vars}.
+\end{note}
 
 \section{Variable definitions}
 \label{defines}
@@ -42,7 +57,7 @@ At the outermost level of a program, a definition
 \begin{scheme}
 (define \hyper{variable} \hyper{expression})%
 \end{scheme}
-which adds or updates the environment with the new assignment. Note
+adds or updates the environment with the new assignment. Note
 that the environment of a lambda expression includes the variable so
 it can be called recursively.
 
@@ -58,13 +73,13 @@ it can be called recursively.
 \label{internaldefines}
 
 Definitions can occur at the
-beginning of a \hyper{body} (that is, the body of a \ide{lambda},
+beginning of a \hyper{body} (that is, the body of a \ide{lambda}
 or \ide{let}).  Note that
 such a body might not be apparent until after expansion of other syntax.
 Such definitions are known as {\em internal definitions}\mainindex{internal
 definition} as opposed to the global definitions described above.
 The variables defined by internal definitions are local to the
-\hyper{body}.  That is, \hyper{variable} is bound rather than assigned,
+\hyper{body}.  That is, \hyper{variable} is bound,
 and the region of the binding is the following definitions and expressions in the \hyper{body}.  For example,
 
 \begin{scheme}
@@ -74,14 +89,15 @@ and the region of the binding is the following definitions and expressions in th
   (foo (+ x 3)))                \ev  45%
 \end{scheme}
 
-It is an error if it is not
-possible to evaluate each \hyper{expression} of every internal
-definition in a \hyper{body} without assigning or referring to
-the value of the corresponding \hyper{variable} or the \hyper{variable}
-of any of the definitions that follow it in \hyper{body}.
-
 It is an error to define the same identifier more than once in the
 same \hyper{body}.
+
+\begin{note}
+Unlike \rsevenrs, in Pico scheme, the region binding of a definitions
+is the following definitions and expressions in the \hyper{body}, not
+the entire \hyper{body} due to differences in semantics from the
+removal of {\cf set!}.
+\end{note}
 
 \section{The REPL}
 

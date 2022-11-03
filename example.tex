@@ -10,9 +10,7 @@ Here are examples using Pico Scheme.
 (define list? (lambda (l)
   (cond ((null? l) \schtrue)
         ((not (pair? l)) \schfalse)
-        (else (list? (cdr l)))
-   )
-))
+        (else (list? (cdr l))))))
 (list? '(a b c))        \ev \schtrue
 (list? '(a . b))  \ev \schfalse
 \end{scheme}
@@ -22,8 +20,8 @@ Returns a list consisting of the elements of {\em l} followed by {\em t}
 \begin{scheme}
 (define append (lambda (l t)
   (cond ((null? l) t)
-          (else (cons (car l) (append (cdr l) t))))
-))
+         (else
+           (cons (car l) (append (cdr l) t))))))
 (append '() '(a))      \ev (a)
 (append '(a b) '(c d)) \ev (a b c d)
 \end{scheme}
@@ -34,8 +32,7 @@ This procedure returns the first sublist of {\em l} whose car is {\em obj}.
 (define assv (lambda (obj l)
   (cond ((null? l) \schfalse)
         ((eqv? obj (car (car l))) (car l))
-        (else (assv obj (cdr l)))
-)))
+        (else (assv obj (cdr l))))))
 (define e '((a 1) (b 2) (c 3)))
 (assv 'a e)            \ev (a 1)
 (assv 'b e)            \ev (b 2)

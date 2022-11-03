@@ -40,7 +40,7 @@ Scheme system.  Other paradigms are possible.
 \label{defines}
 \mainindex{variable definition}
 
-A variable definition binds one identifier and specifies an initial
+A variable definition binds one identifier and specifies a
 value for it.
 The only kind of variable definition
 takes the following form:\mainschindex{define}
@@ -58,7 +58,8 @@ At the outermost level of a program, a definition
 (define \hyper{variable} \hyper{expression})%
 \end{scheme}
 adds or updates the environment with the new assignment. Note
-that the environment of a lambda expression includes the variable so
+that the environment of a lambda expression used with define
+includes the variable so
 it can be called recursively.
 
 \begin{scheme}
@@ -74,8 +75,7 @@ it can be called recursively.
 
 Definitions can occur at the
 beginning of a \hyper{body} (that is, the body of a \ide{lambda}
-or \ide{let}).  Note that
-such a body might not be apparent until after expansion of other syntax.
+or \ide{let}).
 Such definitions are known as {\em internal definitions}\mainindex{internal
 definition} as opposed to the global definitions described above.
 The variables defined by internal definitions are local to the

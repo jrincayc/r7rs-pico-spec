@@ -116,9 +116,10 @@ Pico Scheme implementations may support integers of practically
 unlimited size, or they may support integers with a limited range.  If
 using limited range integers some operations may overflow. Pico Scheme
 implementations should document integer range restrictions and how
-they are handeled. Pico Scheme implementations may either return the
+they are handled. Pico Scheme implementations may either return the
 wrapped around number, or return a miscellaneous value (such as {\it
-  false} or {\it undefined}) for overflow.
+  false} or {\it undefined}) for overflow (which can be checked with
+{\cf number?} which will return \schfalse\ for a miscellaneous value).
 \end{note}
 
 \subsection{Syntax of numerical constants}

@@ -108,11 +108,19 @@ used to implement the Scheme numbers, and notations used to write
 numbers.  This report uses the types \type{number}, and \type{integer}
 to refer to both mathematical numbers and Scheme numbers.
 
-Pico Scheme implementations should support integers sufficiently large
-to calculate the length of any allowable list, and for binary computers that usually can
-be satisfied by signed integers of the same bit length as machine
-addresses.
+Pico Scheme implementations should support signed integers with a
+range that includes the longest possible list length.
 
+\begin{note}
+Pico Scheme implementations may support integers of practically
+unlimited size, or they may support integers with a limited range.  If
+using limited range integers some operations may overflow. Pico Scheme
+implementations should document integer range restrictions and how
+they are handled. Pico Scheme implementations may either return the
+wrapped around number, or return a miscellaneous value (such as {\it
+  false} or {\it undefined}) for overflow (which can be checked with
+{\cf number?} which will return \schfalse\ for a miscellaneous value).
+\end{note}
 
 \subsection{Syntax of numerical constants}
 \label{numbernotations}

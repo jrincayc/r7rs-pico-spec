@@ -13,11 +13,10 @@ jobs:
       run: >
         sudo apt-get install texlive-full
 
-    - name: Install dependencies
+    - name: Run make
       run: make
+    - name: Archive pdf
+      uses: actions/upload-artifact@v2
+      with:
+        path: pr7rs.pdf
 
-    - name: Run check
-      run: make check
-
-    - name: Run distcheck
-      run: make distcheck

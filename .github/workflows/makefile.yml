@@ -1,0 +1,22 @@
+name: Makefile CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Dependencies
+      run: >
+        sudo apt-get install texlive texlive-plain-generic
+
+    - name: Run make
+      run: make
+    - name: Archive pdf
+      uses: actions/upload-artifact@v3
+      with:
+        path: pr7rs.pdf
+

@@ -31,8 +31,7 @@ expression types (literal, variable, call, \ide{lambda}, \ide{if}) occur.
 (or)          \>\iet  \schfalse
 (or \hyper{test})\>\iet  \hyper{test}
 (or \hyperi{test} \hyperii{test} \dotsfoo)
-\iet  (let ((x \hyperi{test}))
-        (if x x (or \hyperii{test} \dotsfoo)))
+\iet  (if \hyperi{test} \hyperi{test} (or \hyperii{test} \dotsfoo))
 
 (let ((\hyperi{variable} \hyperi{init}) \dotsfoo)
   \hyper{body})

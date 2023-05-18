@@ -27,6 +27,7 @@ There are various other smaller versions of Scheme including:
 * Bottom Scheme: https://github.com/johnwcowan/r7rs-work/blob/master/BottomScheme.md
 * Lispy: https://norvig.com/lispy.html
 * LISP in a Boot Sector: https://github.com/jart/sectorlisp
+* PICOBIT: https://github.com/stamourv/picobit
 
 In order to use the examples in The Little Schemer in Pico Scheme, the
 following definitions are needed:

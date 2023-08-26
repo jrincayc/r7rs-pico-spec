@@ -35,10 +35,10 @@ pr7rs.pdf: $(SOURCES) stdmod.tex
 	makeindex pr7rs.idx
 	pdflatex $<
 
-a5_pr7rs.pdf:  a5_pr7rs.tex $(SOURCES) stdmod.tex first_a5.tex
+pr7rs_a5.pdf:  pr7rs_a5.tex $(SOURCES) stdmod.tex first_a5.tex
 	pdflatex $<
 	pdflatex $<
-	makeindex a5_pr7rs.idx
+	makeindex pr7rs_a5.idx
 	pdflatex $<
 
 overview.pdf: overview.tex overview-body.tex

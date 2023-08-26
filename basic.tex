@@ -26,7 +26,9 @@ These expression types are called {\em binding constructs}.
 The most fundamental of the variable binding constructs is the
 {\cf lambda} expression, because all other variable binding constructs
 can be explained in terms of {\cf lambda} expressions.  The other
-variable binding construct is {\cf let}.
+variable binding constructs are {\cf let} and {\cf define}.
+
+%Hm, is define fundamental?
 
 \vest Scheme is a language with
 block structure.  To each place where an identifier is bound in a program
@@ -110,7 +112,7 @@ objects in the appropriate sections of chapter~\ref{initialenv}.
 \label{storagemodel}
 
 Since side effects are not allowed, implementations may choose to
-any convenient storage model.
+use any convenient storage model.
 
 \section{Proper tail recursion}
 \label{proper tail recursion}

@@ -476,7 +476,7 @@ Pico Scheme allows output to a character device. Input is not
 specified in this report but an implementation may be extended to
 support input. Since expressions are side-effect free, standard Pico
 Scheme programs should not perform input or output from expressions
-and implementations can require that input or output from them is an
+and implementations may require that input or output from them is an
 error.  Output is only required to be allowed at the outermost level
 of a program.
 
@@ -501,7 +501,7 @@ of a program.
   {\cf write-u8}, {\cf (define} \hyper{indentifier} {\cf (read))}, and
   {\cf (define} \hyper{identifier} {\cf (read-u8))} to the outermost
   level to support more IO. Other IO from \rsevenrs{} can be added if
-  string or char or port types are added.
+  string, char or port types are added.
 \end{rationale}
 
 \subsection{Output}
@@ -511,10 +511,10 @@ of a program.
 \proto{display}{ obj}{input or output}
 }
 
-Writes a representation of \var{obj} to the textual output.
-For booleans, nulls, numbers, symbols and pairs, this should
-be an external representation of the object.
-Returns an unspecified value.
+Writes a representation of \var{obj} to the textual output.  For
+booleans, nulls, numbers and symbols, and pairs containing these, this
+should be an external representation of the object.  Returns an
+unspecified value.
 
 \end{entry}
 

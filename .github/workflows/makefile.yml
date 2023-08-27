@@ -14,9 +14,10 @@ jobs:
         sudo apt-get install texlive texlive-plain-generic
 
     - name: Run make
-      run: make
+      run: make pr7rs.pdf pr7rs_a5.pdf pr7rs_a4.pdf
     - name: Archive pdf
       uses: actions/upload-artifact@v3
       with:
-        path: pr7rs.pdf
+        path: |
+          *.pdf
 

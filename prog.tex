@@ -51,16 +51,18 @@ takes the following form:\mainschindex{define}
 
 \end{itemize}
 
+Note
+that the environment of a lambda expression used with define
+includes the variable so
+it can be called recursively.
+
 \subsection{Top level definitions}
 
 At the outermost level of a program, a definition
 \begin{scheme}
 (define \hyper{variable} \hyper{expression})%
 \end{scheme}
-adds or updates the environment with the new assignment. Note
-that the environment of a lambda expression used with define
-includes the variable so
-it can be called recursively.
+adds or updates the environment with the new assignment. 
 
 \begin{scheme}
 (define add3

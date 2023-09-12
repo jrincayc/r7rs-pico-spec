@@ -51,10 +51,9 @@ takes the following form:\mainschindex{define}
 
 \end{itemize}
 
-Note
-that the environment of a lambda expression used with define
-includes the variable so
-it can be called recursively.
+Note that if \hyper{expression} is a lambda expression, it is
+evaluated in an environment that includes the defined \hyper{variable}
+so it can be used for recursion.
 
 \subsection{Top level definitions}
 
